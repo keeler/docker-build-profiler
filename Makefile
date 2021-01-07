@@ -28,6 +28,10 @@ run:
 init:
 	$(shell docker exec -i $(CONTAINER_NAME) ./init.sh &)
 
+.PHONY: shell
+shell:
+	docker exec -it $(CONTAINER_NAME) /bin/sh
+
 .PHONY: stop
 stop:
 	docker stop $(CONTAINER_NAME)

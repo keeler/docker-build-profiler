@@ -6,7 +6,7 @@ ARG jaeger_version
 RUN test -n "$buildkit_version" || (echo "buildkit_version arg not set" && exit 5)
 RUN test -n "$jaeger_version" || (echo "jaeger_version arg not set" && exit 5)
 
-WORKDIR /workspace
+WORKDIR /etc/self
 
 # Download and install buildkit
 ENV BUILDKIT_VERSION=${buildkit_version}
@@ -28,5 +28,7 @@ ENV JAEGER_TRACE=0.0.0.0:6831
 # Compress with tar here to avoid magic number errors due to different tar versions.
 ADD ./jaeger ./jaeger
 RUN tar czvf jaeger.tar.gz -C jaeger/ .
+
+WORKDIR /workspace
 
 ADD init.sh init.sh
