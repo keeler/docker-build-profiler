@@ -2,11 +2,9 @@ FROM docker:dind
 
 ARG buildkit_version
 ARG jaeger_version
-ARG jaeger_zip
 
-# RUN test -n "$buildkit_version" || (echo "buildkit_version arg not set" && exit 5)
-# RUN test -n "$jaeger_version" || (echo "jaeger_version arg not set" && exit 5)
-# RUN test -n "$jaeger_zip" || (echo "jaeger_zip arg not set" && exit 5)
+RUN test -n "$buildkit_version" || (echo "buildkit_version arg not set" && exit 5)
+RUN test -n "$jaeger_version" || (echo "jaeger_version arg not set" && exit 5)
 
 WORKDIR /workspace
 
