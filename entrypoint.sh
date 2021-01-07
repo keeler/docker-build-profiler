@@ -1,6 +1,9 @@
 #!/bin/sh
 # Start Jaeger and buildkit daemon.
 
+# Entrypoint of parent image.
+exec /usr/local/bin/dockerd-entrypoint.sh "$@" &
+
 while ! pgrep -f dockerd
 do
   echo "Waiting for dockerd up..."

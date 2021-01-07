@@ -29,6 +29,8 @@ ENV JAEGER_TRACE=0.0.0.0:6831
 ADD ./jaeger ./jaeger
 RUN tar czvf jaeger.tar.gz -C jaeger/ .
 
-WORKDIR /workspace
+ADD entrypoint.sh entrypoint.sh
+ENTRYPOINT ["/etc/self/entrypoint.sh"]
 
-ADD init.sh init.sh
+# Empty dir for users to put docker build contexts.
+WORKDIR /workspace

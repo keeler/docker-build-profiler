@@ -24,9 +24,9 @@ run:
 		-p16686:16686 \
 		$(IMAGE):$(IMAGE_TAG)
 
-.PHONY: init
-init:
-	$(shell docker exec -i $(CONTAINER_NAME) ./init.sh &)
+.PHONY: logs
+logs:
+	docker logs -f $(CONTAINER_NAME)
 
 .PHONY: shell
 shell:
