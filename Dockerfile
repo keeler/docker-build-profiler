@@ -1,4 +1,6 @@
-FROM docker:dind
+ARG dind_version
+
+FROM docker:${dind_version}-dind
 
 ARG buildkit_version
 ARG jaeger_version
@@ -28,6 +30,7 @@ ENV JAEGER_TRACE=0.0.0.0:6831
 # Compress with tar here to avoid magic number errors due to different tar versions.
 ADD ./jaeger ./jaeger
 RUN tar czvf jaeger.tar.gz -C jaeger/ .
+RUN rm -rf ./jaeger
 
 ADD entrypoint.sh entrypoint.sh
 ENTRYPOINT ["/etc/self/entrypoint.sh"]
