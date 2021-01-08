@@ -1,10 +1,14 @@
 # docker-build-profiler
 
+[![](https://img.shields.io/badge/dockerhub-keelerrussell%2Fdocker--build--profiler-blue)](https://hub.docker.com/r/keelerrussell/docker-build-profiler)
+
 A docker image which uses docker-in-docker + buildkit + Jaeger to profile docker build times.
 
 ## Background
 
 Inspired by this PR: https://github.com/moby/buildkit/pull/255
+
+Read more about it here: https://keeler.github.io/docker-build-profiling/
 
 ## Developing
 
